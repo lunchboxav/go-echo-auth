@@ -93,13 +93,13 @@ func main() {
 
 	// Route that requires no authorization
 	e.GET("/items/:id", getItem)
-	e.POST("/items", createItem)
+	// e.POST("/items", createItem)
 
 	// Route that requires authorization
 	r := e.Group("/member")
 	r.Use(middleware.JWT([]byte("secret")))
 	r.GET("", restricted)
-	//r.POST("/items", createItem)
+	r.POST("/items", createItem)
 
 	e.Logger.Fatal(e.Start(":9386"))
 }
