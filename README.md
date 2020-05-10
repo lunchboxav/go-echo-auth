@@ -1,2 +1,2 @@
-# go-echo-auth0
-Contoh kode membuat REST API dengan Go yang melibatkan autentikasi dengan Auth0. 
+# go-echo-auth
+Contoh kode membuat REST API dengan Go yang melibatkan autentikasi dasar menggunakan JWT.
