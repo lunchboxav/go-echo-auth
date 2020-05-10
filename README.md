@@ -23,3 +23,12 @@ Kamu akan mendapatkan respon token, misal:
 ```
 curl -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTg5MzQyNTQ0LCJuYW1lIjoidXNlcjEifQ._Dg0GhdYrC9R6DAruHAWyQ-CWj1IXQLvDqDGHUv9fhU" -H 'Content-Type: application/json' -d '{"name":"deterjen"}' http://localhost:9386/member/items
 ```
+
+## Referensi:
+- https://echo.labstack.com/cookbook/jwt
+- https://www.sohamkamani.com/golang/2019-01-01-jwt-authentication/
+- https://ednsquare.com/story/jwt-authentication-in-golang-with-echo------T2hTPm
+
+Untuk mempelajari bagaimana cara menyimpan password di database, bisa cek juga:
+- https://medium.com/@jcox250/password-hash-salt-using-golang-b041dc94cb72
+
