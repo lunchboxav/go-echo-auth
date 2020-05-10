@@ -22,6 +22,12 @@ var (
 	seq   = 1
 )
 
+// Stores password
+var users = map[string]string{
+	"user1": "password1",
+	"user2": "password2",
+}
+
 func initiateData() {
 	items[0] = &item{ID: 0, Name: "kecap"}
 	items[1] = &item{ID: 1, Name: "susu"}
@@ -32,8 +38,10 @@ func login(c echo.Context) error {
 	username := c.FormValue("username")
 	password := c.FormValue("password")
 
-	// Unauthorized error
-	if username != "jon" || password != "snow" {
+	// Handles wrong password
+	expectedPassword, ok := users[username]
+
+	if !ok || expectedPassword != password {
 		return echo.ErrUnauthorized
 	}
 
@@ -42,7 +50,7 @@ func login(c echo.Context) error {
 
 	// Set token claims
 	claims := token.Claims.(jwt.MapClaims)
-	claims["name"] = "Jon Snow"
+	claims["name"] = username
 	claims["admin"] = true
 	claims["exp"] = time.Now().Add(time.Hour * 72).Unix()
 
@@ -93,7 +101,6 @@ func main() {
 
 	// Route that requires no authorization
 	e.GET("/items/:id", getItem)
-	// e.POST("/items", createItem)
 
 	// Route that requires authorization
 	r := e.Group("/member")
