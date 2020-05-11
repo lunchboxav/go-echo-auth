@@ -23,6 +23,8 @@ Kamu akan mendapatkan respon token, misal:
 ```
 curl -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiZXhwIjoxNTg5MzQyNTQ0LCJuYW1lIjoidXNlcjEifQ._Dg0GhdYrC9R6DAruHAWyQ-CWj1IXQLvDqDGHUv9fhU" -H 'Content-Type: application/json' -d '{"name":"deterjen"}' http://localhost:9386/member/items
 ```
+## Cara Bekerja
+Autentikasi dalam program ini dilakukan dengan username-password. Pengguna yang login, dengan pasangan username-password yang benar, akan mendapatkan token. Selanjutnya, token ini harus digunakan sebagai nilai autorisasi yang diberikan setiap mengakses endpoint API, sehingga pengguna bisa mengakses endpoint yang tertutup.
 
 ## Referensi:
 - https://echo.labstack.com/cookbook/jwt
